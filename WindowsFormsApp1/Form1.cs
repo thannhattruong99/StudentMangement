@@ -41,6 +41,8 @@ namespace WindowsFormsApp1
                 //load student information 
                 String studentCode = firstRow["MASV"].ToString();
                 dgv_View.DataSource = QLSVienDAO.GetStudentInformationByStudentCode(studentCode).Tables[0];
+
+                //set width size column
                 dgv_View.Columns[0].Width = 150;
                 dgv_View.Columns[1].Width = 300;
                 dgv_View.Columns[2].Width = 100;
@@ -50,31 +52,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Load data error!");
             }
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    SqlConnection scon = DBUtils.GetDBConnection();
-        //    String sqlStr = "Select * From SVIEN";
-        //    try
-        //    {
-        //        scon.Open();
-
-        //        SqlDataAdapter daSVien = new SqlDataAdapter(sqlStr, scon);
-        //        DataSet dsSVien = new DataSet();
-        //        daSVien.Fill(dsSVien);
-        //        dgv_View.DataSource = dsSVien.Tables[0];
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Open connection error!!");
-        //    }
-        //    finally
-        //    {
-        //        scon.Close();
-        //    }
-
-        //}
 
         private void dgv_View_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
